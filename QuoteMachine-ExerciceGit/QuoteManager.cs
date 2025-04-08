@@ -21,7 +21,7 @@
             int minValue = 0;
             int maxValue = _quotes.Count;
             Random rand = new Random();
-            quote = _quotes[rand.Next(0, maxValue)];
+            quote = _quotes[rand.Next(minValue, maxValue)];
             
             //Avant de commencer, décommenter le test suivant:
             //GetRandomQuote_ShouldReturnNonNullQuote
