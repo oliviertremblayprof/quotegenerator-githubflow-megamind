@@ -5,8 +5,9 @@ Console.WriteLine("Ce projet est collaboratif et utilise le GitHub Flow.");
 Console.WriteLine("Développez une application console pour gérer et afficher des citations inspirantes.\n");
 Console.WriteLine("Prochaines étapes : implémentez les fonctionnalités dans des branches distinctes.\n");
 Console.WriteLine("\n=== Menu Principal ===");
-Console.WriteLine("Implémentez le menu du programme dans feature/menu");
+Console.WriteLine("Appuyez sur Enter ");
 Console.ReadKey(true);
+Menu();
 var manager = new QuoteManager();
 string path = "citations.csv";
 
@@ -56,5 +57,27 @@ static void LoadQuotesFromFile(QuoteManager manager)
     {
         Console.WriteLine($"Erreur : {ex.Message}");
     }
+}
+
+
+
+static void Menu()
+{
+    Console.WriteLine("Bienvenue dans le memu MegaMind");
+    
+    Console.WriteLine("\n=== Saissez un nombre selon ce que vous aimeriez avoir  ===");
+    
+    Console.Write("\n=== 1- Voir Une citation au hasard ===");
+    Console.Write("\n=== 2- Ajouter une citation ===");
+    Console.Write("\n=== 3- Charger les ciations dans un fichier csv===");
+    Console.Write("\n=== 4- Sauvegarder les ciations dans un fichier csv ===");
+    
+    Console.WriteLine("");
+    Console.WriteLine("");
+    
+    Console.WriteLine("Bienvenue dans le memu MegaMind");
+    Console.ReadLine();
+
+    
 }
 
