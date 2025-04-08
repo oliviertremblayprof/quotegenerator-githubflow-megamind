@@ -2,8 +2,8 @@
 {
     public class Quote
     {
-        public required string Text { get; set; }
-        public required string Author { get; set; }
+        public string Text { get; set; }
+        public string Author { get; set; }
 
         public override string ToString()
         {
