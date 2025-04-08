@@ -40,12 +40,33 @@ namespace QuoteMachine_ExerciceGit
 
         public void SaveToCSVFile(string path)
         {
-            //Avant de commencer, décommenter les tests suivants:
-            //SaveToFile_ShouldCreateFile
-            //SaveToFile_ShouldThrowIfNotInCSVExtension
-
-            //Avant de créer votre PR, faites un git rebase sur main pour vous assurer que vous avez la dernière version du code.
-            throw new NotImplementedException("À implémenter dans feature/save-to-file");
+            if (IsCSVFile(path) == false)
+            {
+                throw new QuoteFileException("Erreur lors de la sauvegarde : le fichier doit avoir l'extension .csv");
+            }
+            Console.WriteLine("[Simulation] On sauvegarderait les citations ici.");
+            if (File.Exists(path))
+            {
+                // Écriture de tous les membres.
+                StreamWriter fluxEcriture = new StreamWriter(path, false);
+                foreach (var quote in _quotes)
+                {
+                    fluxEcriture.WriteLine($"{quote.Text};{quote.Author}");
+                }
+                fluxEcriture.Close();
+                Console.WriteLine("Citations sauvegardées !");
+            }
+            else
+            {
+                FileStream nouveauFichier = File.Create(path);
+                StreamWriter fluxEcriture = new StreamWriter(nouveauFichier);
+                foreach (var quote in _quotes)
+                {
+                    fluxEcriture.WriteLine($"{quote.Text};{quote.Author}");
+                }
+                fluxEcriture.Close();
+                Console.WriteLine("Citations sauvegardées !");
+            }
         }
 
         public void LoadFromCSVFile(string path)

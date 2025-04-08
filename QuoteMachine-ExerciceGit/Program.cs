@@ -8,7 +8,7 @@ Console.WriteLine("\n=== Menu Principal ===");
 Console.WriteLine("Implémentez le menu du programme dans feature/menu");
 Console.ReadKey(true);
 var manager = new QuoteManager();
-string path = "citations.csv";
+const string path = "citations.csv";
 
 static void ShowRandomQuote(QuoteManager manager)
 {
@@ -34,8 +34,8 @@ static void SaveQuotesToFile(QuoteManager manager)
     {
         Console.WriteLine("[Simulation] On sauvegarderait les citations ici.");
         // Exemple futur :
-        // manager.SaveToFile("citations.txt");
-        //Console.WriteLine("Citations sauvegardées !");
+        manager.SaveToCSVFile(path);
+        Console.WriteLine("Citations sauvegardées !");
     }
     catch (Exception ex)
     {
