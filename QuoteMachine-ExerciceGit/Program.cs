@@ -13,19 +13,26 @@ const string path = "citations.csv";
 static void ShowRandomQuote(QuoteManager manager)
 {
     Console.WriteLine("[Simulation] Une citation aléatoire s’afficherait ici.");
+
     // Exemple futur : Console.WriteLine(manager.GetRandomQuote());
 }
 
 static void AddNewQuote(QuoteManager manager)
 {
-    Console.WriteLine("[Simulation] On ajouterait une nouvelle citation ici.");
-    // Exemple futur :
-    // Console.Write("Texte : ");
-    // var texte = Console.ReadLine();
-    // Console.Write("Auteur : ");
-    // var auteur = Console.ReadLine();
-    // manager.AddQuote(texte, auteur);
-    // Console.WriteLine("Citation ajoutée !");
+    Console.WriteLine("Ajout de citation");
+    Console.Write("Texte : ");
+    var texte = Console.ReadLine();
+    Console.Write("Auteur : ");
+    var auteur = Console.ReadLine();
+
+    if (manager.AddQuote(texte, auteur))
+    {
+        Console.WriteLine("Citation ajoutée !");
+    }
+    else
+    {
+        Console.WriteLine("Erreur lors de l'ajout de la citation.");
+    }
 }
 
 static void SaveQuotesToFile(QuoteManager manager)
